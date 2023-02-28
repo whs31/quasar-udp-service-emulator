@@ -21,6 +21,22 @@ public:
     void yawChange(int Value); //-1 to 1
     void throttleChange(int Value); //-1 to 1
 
+    struct Telemetry {
+        double latitude = 0;
+        double longitude = 0;
+        float speed = 0;
+        float elevation = 0;
+        float direction = 0;
+        short satellites = 5;
+    }; Telemetry telemetry;
+
+    struct Axes {
+        float pitch = 0;
+        float yaw = 0;
+        float roll = 0;
+        float throttle = 0;
+    }; Axes axes;
+
 protected:
     quint16 DEFAULT_UPDATE_PERIOD = 200; //ms
     QGeoCoordinate DEFAULT_COORDINATE = QGeoCoordinate(60.346, 30.78);

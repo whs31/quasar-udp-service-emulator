@@ -2,6 +2,7 @@
 #define ROOT_H
 
 #include <QMainWindow>
+#include <QSet>
 #include "src/saroutputconsoleemulator.hpp"
 
 QT_BEGIN_NAMESPACE
@@ -15,6 +16,7 @@ class Root : public QMainWindow
 public:
     Root(QWidget *parent = nullptr);
     ~Root();
+    bool eventFilter(QObject* obj, QEvent* event);
 
 private slots:
     void on_lineEdit_textChanged(const QString &arg1);
@@ -24,6 +26,7 @@ private slots:
 
 private:
     Ui::Root *ui;
+    QSet<int> pressedKeys;
     SAROutputConsoleEmulator* feedbackEmulator;
 };
 #endif // ROOT_H
